@@ -1,19 +1,15 @@
-%define name	tidyp
-%define version 1.04
-%define release %mkrel 1
 %define libname %mklibname %{name} 1.04
 %define develname %mklibname %name -d
 
 Summary:	Program for tidying up messy HTML
-Name:		%{name}
-Version:	%{version}
-Release:	%{release}
+Name:		tidyp
+Version:	1.04
+Release:	2
 Group:		Text tools
 License:	W3C License
 URL:		http://tidyp.com/
 Source0:	http://github.com/downloads/petdance/tidyp/tidyp-%{version}.tar.gz
 Patch0:		tidy-20081224cvs-fix-format-errors.patch
-BuildRoot:	%{_tmppath}/%{name}-%{version}
 
 %description
 tidyp is a program that can validate your HTML, as well as modify it to be more
@@ -48,37 +44,25 @@ applications which will use %{name}.
 %patch0 -p1
 
 %build
-%configure2_5x
+%configure2_5x --disable-static
 %make
 
 %install
-%__rm -rf %{buildroot}
 %makeinstall_std
 
-%clean
-%__rm -rf %{buildroot}
-
-%if %mdkversion < 200900
-%post -n %{libname} -p /sbin/ldconfig
-%endif
-
-%if %mdkversion < 200900
-%postun -n %{libname} -p /sbin/ldconfig
-%endif
-
 %files
-%defattr(-,root,root)
 %doc README ChangeLog
 %{_bindir}/*
 
 %files -n %{libname}
-%defattr(-,root,root)
 %{_libdir}/*.so.*
 
 %files -n %{develname}
-%defattr(-,root,root)
 %{_includedir}/*
-%{_libdir}/*.la
-%{_libdir}/*.a
 %{_libdir}/*.so
+
+%changelog
+* Mon Nov 29 2010 Guillaume Rousse <guillomovitch@mandriva.org> 1.04-1mdv2011.0
++ Revision: 603003
+- import tidyp
 
