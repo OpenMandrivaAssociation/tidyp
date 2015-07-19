@@ -4,7 +4,7 @@
 Summary:	Program for tidying up messy HTML
 Name:		tidyp
 Version:	1.04
-Release:	9
+Release:	10
 Group:		Text tools
 License:	W3C License
 URL:		http://tidyp.com/
