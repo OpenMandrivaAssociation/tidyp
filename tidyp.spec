@@ -1,14 +1,14 @@
-%define libname %mklibname %{name} 1.04
+%define libname %mklibname %{name}
 %define develname %mklibname %name -d
 
 Summary:	Program for tidying up messy HTML
 Name:		tidyp
 Version:	1.04
-Release:	12
+Release:	13
 Group:		Text tools
 License:	W3C License
-URL:		http://tidyp.com/
-Source0:	http://github.com/downloads/petdance/tidyp/tidyp-%{version}.tar.gz
+URL:		http://petdance/tidyp
+Source0:	https://github.com/petdance/tidyp/archive/refs/tags/%{version}.tar.gz
 Patch0:		tidy-20081224cvs-fix-format-errors.patch
 
 %description
@@ -40,15 +40,14 @@ This package contains the headers that programmers will need to develop
 applications which will use %{name}.
 
 %prep
-%setup -q
-%patch0 -p1
+%autosetup -p1
+%configure
 
 %build
-%configure2_5x --disable-static
-%make
+%make_build
 
 %install
-%makeinstall_std
+%make_install
 
 %files
 %doc README ChangeLog
@@ -60,9 +59,3 @@ applications which will use %{name}.
 %files -n %{develname}
 %{_includedir}/*
 %{_libdir}/*.so
-
-%changelog
-* Mon Nov 29 2010 Guillaume Rousse <guillomovitch@mandriva.org> 1.04-1mdv2011.0
-+ Revision: 603003
-- import tidyp
-
