@@ -7,7 +7,7 @@ Version:	1.04
 Release:	14
 Group:		Text tools
 License:	W3C License
-URL:		http://petdance/tidyp
+URL:		https://petdance/tidyp
 Source0:	https://github.com/petdance/tidyp/archive/refs/tags/%{version}.tar.gz
 Patch0:		tidy-20081224cvs-fix-format-errors.patch
 
