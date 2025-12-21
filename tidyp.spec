@@ -11,6 +11,11 @@ URL:		https://petdance/tidyp
 Source0:	https://github.com/petdance/tidyp/archive/refs/tags/%{version}.tar.gz
 Patch0:		tidy-20081224cvs-fix-format-errors.patch
 
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 %description
 tidyp is a program that can validate your HTML, as well as modify it to be more
 clean and standard. tidyp does not validate HTML 5.
